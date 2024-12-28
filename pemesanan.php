@@ -59,9 +59,9 @@
    </h3>
   </div>
 <body>
-    <main id="pemesanan" class="flex-shrink-0">
-        <div class="container">
-          <form method="post" action="daftar.php">
+<main id="pemesanan" class="flex-shrink-0">
+  <div class="container">
+    <form method="post" action="proses.php">
       <div class="card mt-2">
         <div class="card-header bg-dark text-white">
           Form Pemesanan Paket Wisata
@@ -83,26 +83,25 @@
             <label for="hari_wisata" class="form-label">Hari Wisata</label>
             <input type="number" class="form-control" id="hari_wisata" value="1" name="hari_wisata" placeholder="Jumlah Hari Perjalanan" required>
           </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="paket_transport" value="1" id="paket_transport">
+              <label class="form-check-label" for="paket_transport">
+                Transportasi (Rp.3.000)
+              </label>
+            </div>
           </div>
           <div class="mb-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="paket_transport" value="1" id="paket_transport">
-                <label class="form-check-label" for="paket_transport">
-                  Transportasi (Rp.3.000)
-                </label>
-              </div>
-          </div>
-          <div class="mb-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="paket_makan" value="1" id="paket_makan">
-                <label class="form-check-label" for="paket_makan">
-                  Service/ Makan (Rp. 100.000)
-                </label>
-              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="paket_makan" value="1" id="paket_makan">
+              <label class="form-check-label" for="paket_makan">
+                Service/ Makan (Rp. 100.000)
+              </label>
+            </div>
           </div>
           <div class="mb-3">
             <label for="jumlah_peserta" class="form-label">Jumlah Peserta</label>
-            <input type="number" class="form-control" id="jumlah_peserta" value="1" name="jumlah_peserta" placeholder="Jumlah Hari Perjalanan" required>
+            <input type="number" class="form-control" id="jumlah_peserta" value="1" name="jumlah_peserta" placeholder="Jumlah Peserta" required>
           </div>
           <div class="mb-3">
             <label for="harga" class="form-label">Harga Paket</label>
@@ -118,73 +117,69 @@
           <input type="reset" class="btn btn-danger" value="Ulangi">
         </div>
       </div>
-      <script>
-      //tentukan konstanta biaya masing-masing
-      const paket_transport = 3000;
-      const paket_makan = 100000;
-      
-      function updateTotalCost()
-      {
-          //inisisi harga paket 0
-          let totalCost = 0;
-          
-          //referensi dari checkbox
-          const inapCheckbox = document.getElementById('paket_inap');
-          const transportCheckbox = document.getElementById('paket_transport');
-          const makanCheckbox = document.getElementById('paket_makan');
-          
-          //jika inap checkbox ter-check
-          if(inapCheckbox.checked)
-          {
-              totalCost+=paket_inap;
-          }
-          
-          //jika transport checkbox ter-check
-          if(transportCheckbox.checked)
-          {
-              totalCost+=paket_transport;
-          }
-          
-          //jika makan checkbox ter-check
-          if(makanCheckbox.checked)
-          {
-              totalCost+=paket_makan;
-          }
-          
-          document.getElementById('harga').value = totalCost;
+    </form>
+  </div>
+
+  <script>
+    // Biaya untuk masing-masing paket
+    const paket_transport = 3000;
+    const paket_makan = 100000;
+
+    // Fungsi untuk memperbarui harga paket berdasarkan checkbox
+    function updateTotalCost() {
+      let totalCost = 0;
+
+      // Referensi checkbox
+      const transportCheckbox = document.getElementById('paket_transport');
+      const makanCheckbox = document.getElementById('paket_makan');
+
+      // Menambahkan biaya sesuai dengan checkbox yang dipilih
+      if (transportCheckbox.checked) {
+        totalCost += paket_transport;
       }
-      
-      function updateTotal()
-      {
-          let TotalTagihan = 0;
-          
-          var hari_wisata = document.getElementById('hari_wisata').value;
-          var jumlah_peserta = document.getElementById('jumlah_peserta').value;
-          var harga = document.getElementById('harga').value;
-          
-          TotalTagihan = hari_wisata * jumlah_peserta * harga;
-          
-          document.getElementById('total').value = TotalTagihan;
+
+      if (makanCheckbox.checked) {
+        totalCost += paket_makan;
       }
-      
-      document.getElementById('paket_inap').addEventListener('change', updateTotalCost);
-      document.getElementById('paket_transport').addEventListener('change', updateTotalCost);
-      document.getElementById('paket_makan').addEventListener('change', updateTotalCost);
-      
-      document.getElementById('paket_inap').addEventListener('change', updateTotal);
-      document.getElementById('paket_transport').addEventListener('change', updateTotal);
-      document.getElementById('paket_makan').addEventListener('change', updateTotal);
-      
-      document.getElementById('hari_wisata').addEventListener('change', updateTotalCost);
-      document.getElementById('jumlah_peserta').addEventListener('change', updateTotalCost);
-      
-      document.getElementById('hari_wisata').addEventListener('change', updateTotal);
-      document.getElementById('jumlah_peserta').addEventListener('change', updateTotal);
-      
+
+      // Mengupdate harga paket
+      document.getElementById('harga').value = totalCost;
+    }
+
+    // Fungsi untuk menghitung total tagihan berdasarkan jumlah peserta, hari wisata, dan harga paket
+    function updateTotal() {
+      let totalTagihan = 0;
+
+      const hari_wisata = document.getElementById('hari_wisata').value;
+      const jumlah_peserta = document.getElementById('jumlah_peserta').value;
+      const harga = document.getElementById('harga').value;
+
+      totalTagihan = hari_wisata * jumlah_peserta * harga;
+
+      // Mengupdate total tagihan
+      document.getElementById('total').value = totalTagihan;
+    }
+
+    // Menambahkan event listener untuk mengupdate harga dan total ketika ada perubahan
+    document.getElementById('paket_transport').addEventListener('change', function() {
       updateTotalCost();
       updateTotal();
-      </script>  </div>
-      </main>
+    });
+
+    document.getElementById('paket_makan').addEventListener('change', function() {
+      updateTotalCost();
+      updateTotal();
+    });
+
+    document.getElementById('hari_wisata').addEventListener('change', updateTotal);
+    document.getElementById('jumlah_peserta').addEventListener('change', updateTotal);
+
+    // Menginisialisasi harga dan total pada saat halaman dimuat
+    updateTotalCost();
+    updateTotal();
+  </script>
+</main>
+
       <div style="background-image: url(img/bawah.png);" class="footer">
    <div class="footer-content">
     <div>
