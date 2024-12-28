@@ -2,7 +2,7 @@
 $hostname = 'localhost';
 $username = 'root';
 $password = '';
-$db_name = 'curug';
+$db_name = 'curug ibun';
 
 
 $db = mysqli_connect($hostname, $username, $password, $db_name);

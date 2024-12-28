@@ -6,122 +6,38 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            position: relative;
-            text-align: center;
-            color: white;
-        }
-        .header img {
-            width: 100%;
-            height: auto;
-        }
-        .header .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .header h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-        .header .location {
-            margin-top: 10px;
-            font-size: 1.2em;
-        }
-        .header .search {
-            margin-top: 20px;
-        }
-        .header .search input {
-            padding: 10px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-        }
-        .header .search button {
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            background-color: #e74c3c;
-            color: white;
-            cursor: pointer;
-        }
-        .section-title {
-            text-align: center;
-            margin: 50px 0;
-        }
-        .section-title h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .section-title h3 {
-            font-size: 2em;
-            margin: 0;
-        }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .gallery img {
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .description {
-            text-align: center;
-            margin: 50px 20px;
-        }
-        .description p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        .footer {
-            background-color: #2c3e50;
-            color: black;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .footer .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .footer .footer-content div {
-            margin: 10px 0;
-        }
-        .footer .footer-content h4 {
-            margin-bottom: 10px;
-        }
-        .footer .footer-content p {
-            margin: 5px 0;
-        }
-  </style>
+  <link href="style.css" rel="stylesheet"/>
  </head>
  <body>
+ <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: transparent; position: absolute; width: 100%; z-index: 10;">
+    <div class="container">
+      <a class="navbar-brand" href="#">CurugIbun.com</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#deskripsi">DESKRIPSI </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">GALERY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pemesanan.php">FORM PEMESANAN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="daftar.php">DAFTAR PEMESANAN </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="header">
       <header class="position-absolute top-0 end-0 d-flex justify-content-end">
-          <nav>
-              <a class="text-decoration-none btn btn-warning" href="">Sign In</a>
-              <a class="text-decoration-none btn border-3 text-white border-warning" href="">Sign Up</a>
-          </nav>
       </header>
       <img alt="Scenic view of Curug Ibun Pelangi waterfall with a bridge over the river" height="1080" src="img/jembatan.jpg" width="1920"/>
       <div class="overlay">
@@ -150,7 +66,8 @@
     IBUN PELANGI
    </h3>
   </div>
-  <div class="gallery">
+
+  <div id="deskripsi" class="gallery">
    <img alt="View of the waterfall inside a cave" height="200" src="img/jembatan tangga.jpg" width="300"/>
    <img alt="Scenic view of the waterfall surrounded by greenery" height="200" src="img/depan.jpg" width="300"/>
    <img alt="View of the waterfall with sunlight filtering through trees" height="200" src="img/jembatan.jpg" width="300"/>
@@ -179,7 +96,7 @@
     GALERI FOTO
    </h3>
   </div>
-  <div class="gallery">
+  <div id="gallery"  class="gallery">
    <img alt="Group of people enjoying a meal together" height="200" src="img/berlima1.jpg" width="300"/>
    <img alt="Person taking a photo near the waterfall" height="200" src="img/berlima2.jpg" width="300"/>
    <img alt="Group of friends posing for a photo" height="200" src="img/berlima3.jpg" width="300"/>
